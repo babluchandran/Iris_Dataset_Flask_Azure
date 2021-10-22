@@ -9,9 +9,10 @@ app = Flask(__name__)
 model = joblib.load(open("model.pkl", "rb"))
 
 
-@app.route("/index")
+@app.route("/")
 def home():
     return render_template('index.html')
+     #return "Iris"
 
 
 @app.route("/predict", methods=["POST"])
@@ -29,4 +30,4 @@ def predict():
 
 
 if __name__ == "__main__":
-    app.run(threaded=True, port=5000)
+    app.run('0.0.0.0', threaded=True, port=5000)
